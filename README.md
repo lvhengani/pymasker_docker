@@ -48,5 +48,8 @@ Landsat Collection [-C] = 1
 --Shadow is a flag indicating that a cloud-shadow mask should also be generated 
 
 ```
+After running, two files `LC08_L1TP_168078_20170619_20170629_01_T1_bqa_cloud_mask.TIF` and `LC08_L1TP_168078_20170619_20170629_01_T1_bqa_cloud_shadow_mask.TIF` will be saved in the folder `LC08_L1TP_168078_20170619_20170629_01_T1`.
+ 
+### 
 
 
