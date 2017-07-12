@@ -1,7 +1,6 @@
-# Docker for Pymasker
+# Pymasker_Docker
 
-This is a docker for running Pymasker.
-Pymasker is a python package to generate various masks from the Landsat 8 Quality Assessment band and MODIS land products.
+This is a docker for running Pymasker. Pymasker is a python package to generate various masks from the Landsat 8 Quality Assessment band and MODIS land products.
 The original pymasker together with documentation can be found at [**pymasker**](https://github.com/haoliangyu/pymasker)
 
 ## Usage
