@@ -36,20 +36,35 @@ The `landsat_cloud.py` wrapper was created to specifically run Landsat cloud mas
 ./landsat_cloud [-h] [-C {0,1}] [--shadow] [scene] [confidence {none,undefined,low,medium,high}]
 
 ```
+Required arguments
+
+```
+positional arguments:
+  scene                 An input scene. Use original USGS scene and band
+                        identification format
+  {none,undefined,low,medium,high}
+                        The confidence of the clouds/shadow
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -C {0,1}, --collection {0,1}
+                        The collection number of the scene, for pre-collection
+  --shadow              Include cloud shadows                        
+```
 
 Example:
 
 ```
 ./landsat_cloud LC08_L1TP_168078_20170619_20170629_01_T1 medium -C 1 --shadow
-where:
-scene = LC08_L1TP_168078_20170619_20170629_01_T1
-Confidence = medium
-Landsat Collection [-C] = 1
---Shadow is a flag indicating that a cloud-shadow mask should also be generated 
 
 ```
 After running, two files `LC08_L1TP_168078_20170619_20170629_01_T1_bqa_cloud_mask.TIF` and `LC08_L1TP_168078_20170619_20170629_01_T1_bqa_cloud_shadow_mask.TIF` will be saved in the folder `LC08_L1TP_168078_20170619_20170629_01_T1`.
- 
+
+More information on how to use the wrapper, run the command below:
+
+```
+./landsat_cloud -h
+``` 
 ### 
 
 
