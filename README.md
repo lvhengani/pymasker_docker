@@ -7,11 +7,11 @@ The original pymasker together with documentation can be found at [**pymasker**]
 
 ### Get The Docker Files into Your PC
 
-Pull the repository ..
+Assuming that git is installed on you compouter, clone the repository to your computer using the command `git clone https://github.com/lvhengani/pymasker_docker.git`.
 
 ### Configurations
 
-On the `docker-compose.yml` file edit the path `~/docker_landsat8_ba_c1/temp`, this is s full path to a directory with landsat-8 scenes.
+On the `docker-compose.yml` file edit the path `~/docker_landsat8_ba_c1/temp`, this is a full path to a directory with all your (extracted) Landsat-8 scenes.
 
 ### Build the Docker Image
 
@@ -36,3 +36,17 @@ The `landsat_cloud.py` wrapper was created to specifically run Landsat cloud mas
 ./landsat_cloud [-h] [-C {0,1}] [--shadow] [scene] [confidence {none,undefined,low,medium,high}]
 
 ```
+
+Example:
+
+```
+./landsat_cloud LC08_L1TP_168078_20170619_20170629_01_T1 medium -C 1 --shadow
+where:
+scene = LC08_L1TP_168078_20170619_20170629_01_T1
+Confidence = medium
+Landsat Collection [-C] = 1
+--Shadow is a flag indicating that a cloud-shadow mask should also be generated 
+
+```
+
+
