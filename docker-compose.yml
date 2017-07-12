@@ -1,0 +1,12 @@
+version: '2'
+services:
+  pymasker:
+    build:
+      context: ./dockerfile
+    environment:
+    - USERID=1000
+    volumes:
+    - ./src:/var/src:ro
+    - ~/docker_landsat8_ba_c1/temp:/var/data_dir
+    working_dir: /var/src
+    entrypoint: /docker-entrypoint.sh
