@@ -58,7 +58,7 @@ Example:
 ./landsat_cloud LC08_L1TP_168078_20170619_20170629_01_T1 medium -C 1 --shadow
 
 ```
-After running, two files `LC08_L1TP_168078_20170619_20170629_01_T1_bqa_cloud_mask.TIF` and `LC08_L1TP_168078_20170619_20170629_01_T1_bqa_cloud_shadow_mask.TIF` will be saved in the folder `LC08_L1TP_168078_20170619_20170629_01_T1`.
+After running, two files `LC08_L1TP_168078_20170619_20170629_01_T1_bqa_cloud_mask.TIF` and `LC08_L1TP_168078_20170619_20170629_01_T1_bqa_shadow_mask.TIF` will be saved in the folder `LC08_L1TP_168078_20170619_20170629_01_T1`.
 
 More information on how to use the wrapper, run the command below:
 

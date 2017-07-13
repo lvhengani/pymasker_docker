@@ -19,15 +19,16 @@ sceneID = args.scene
 collection = args.collection
 shadow = args.shadow
 
-bqa_band_path = "{0}/{1}/{1}_BQA.TIF".format(landsat_scenes_path,sceneID)
-output_cloud_mask_path = "{0}/{1}/{1}_bqa_cloud_mask.TIF".format(landsat_scenes_path,sceneID)
-output_shadow_mask_path = "{0}/{1}/{1}_bqa_cloud_shadow_mask.TIF".format(landsat_scenes_path,sceneID) 
+bqa_band_path = "{0}/{1}/{1}_BQA.TIF".format(landsat_scenes_path, sceneID)
+output_cloud_mask_path = "{0}/{1}/{1}_bqa_cloud_mask.TIF".format(landsat_scenes_path, sceneID)
+output_shadow_mask_path = "{0}/{1}/{1}_bqa_shadow_mask.TIF".format(landsat_scenes_path, sceneID)
+output_cloudshadow_mask_path = "{0}/{1}/{1}_bqa_cloudshadow_mask.TIF".format(landsat_scenes_path, sceneID) 
 
 # load the QA band directly
 #
 # The "collection" parameter is required for landsat to specify the collection
 # number. Acceptable number: 0 (pre-collection), 1 (collection-1)
-#
+
 masker = LandsatMasker(bqa_band_path, collection=1)
 
 # algorithm has high confidence that this condition exists
@@ -43,5 +44,7 @@ if shadow:
     # Get mask indicating cloud pixels with high confidence
     cloud_shadow_mask = masker.get_cloud_shadow_mask(conf, cumulative=True)
     masker.save_tif(cloud_shadow_mask, output_shadow_mask_path)
-
+    # Merge the Cloud and Cloud-Shadow mask
+    gdal_calc_string = "gdal_calc.py -A {} -B {} --outfile={} --calc='logical_or(A==1,B==1)'".format(output_cloud_mask_path, output_shadow_mask_path, output_cloudshadow_mask_path)
+    os.system(gdal_calc_string)
 # Done    
