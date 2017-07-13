@@ -1,2 +1,3 @@
 ./src/*~
 ./src/*.pyc
+./src/gdal_utilities.py
